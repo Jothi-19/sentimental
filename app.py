@@ -7,11 +7,10 @@ import json
 def load_model():
     return pipeline(
         "sentiment-analysis",
-        model="distilbert-base-uncased-finetuned-sst-2-english"
+        model="distilbert-base-uncased-finetuned-sst-2-english",
+        device=-1  # CPU only (important for Streamlit Cloud)
     )
-
 sentiment_pipeline = load_model()
-
 # ---------------- Streamlit UI ----------------
 st.title("Sentiment Analysis App")
 st.write("Enter multiple comments in JSON dictionary format and get Positive / Negative / Neutral results.")
